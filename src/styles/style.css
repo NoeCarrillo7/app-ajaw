@@ -1,0 +1,825 @@
+body, p, h1, h2, h3, h4, h5, h6, input, button, select, label, a, span, div {
+  font-family: Arial, sans-serif;
+}
+/* Estilos para la página de error */
+.error {
+  color: red;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para la página de carga */
+.loading {
+  position: absolute;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar-container {
+  width: 80%;
+  background-color: #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 30px;
+  width: 0px;
+  background-color: #0e2472;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 25px 0 0 25px;
+  transition: width 0.2s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.ajaw {
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0e2472;
+}
+
+/* Estilos para la página de inicio */
+.encabezado {
+  width: 100%;
+  height: 150px;
+  display: flex;
+}
+
+.logo {
+  width: 50%;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo select {
+  width: 30%;
+  height: 15%;
+  margin-top: 3%;
+  margin-left: 40%;    
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.logo-img-ini {
+  margin-top: 2%;
+  margin-left: 3%;
+  max-width: 30%;
+  height: auto;
+}
+
+.anuncio1 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 12%;
+}
+
+.nombre {
+  width: 50%;
+  height: 100px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-left: 25%;
+}
+
+.empresa {
+  text-align: center;
+  color: #bc8c44;
+  font-size: 35px;
+  height: 45%;
+}
+.empresa-code{
+  text-align: center;
+  color: #bc8c44;
+  font-size: 20px;
+  height: 45%;
+}
+
+.contenedor1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4%;
+}
+
+.contenedor2 {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.graficas{
+  width: 45%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+/*Esta contiene los estilos para la grafica circular*/
+.circular1{
+    width: 45%;
+    height: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.nombre-graficas {
+  font-family: Arial, sans-serif;
+  color: #0e2472;
+  top: 100%;
+}
+
+/* Estilos para la página de detalles */
+.name {
+  text-transform: uppercase;
+  color: #bc8c44;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.logo-img {
+  margin-top: 1%;
+  margin-left: 3%;
+  max-width: 13%;
+  height: auto;
+}
+
+.tablas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Alineación a la izquierda */
+  gap: 45px; /* Espacio entre las tablas */
+}
+
+.estilo-tablas {
+  width: 370px;
+  margin: 10px;
+  border-radius: 5%;
+  box-shadow: 2px 1px 10px 2px rgba(33, 32, 124, 0.1);
+}
+.trabajo-detalles{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:45px;
+
+}
+.servicio {
+  color: #0e2472;
+  text-align: center;
+  height: 50px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+}
+
+.a-title {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.datos {   
+  color: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.datos p {
+  margin-bottom: 1%;
+}
+
+.datos input {
+  padding: 6px;
+  border: 0.5px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.a-datos input {
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
+  color: rgb(80, 79, 79);
+}
+
+.detalles-trabajos {
+  margin: 2%;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 30px;
+}
+/*Estilos de toda la pagina*/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.centrado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.trabajo-detalles {
+  margin-top: 20px;
+}
+
+select {
+  margin-top: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  outline: none; 
+}
+
+/* Estilos para los cuadros de trabajo */
+.trabajo-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.trabajo-item {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.trabajo-item:hover {
+  transform: scale(1.05);
+}
+
+.trabajo-detalles-hover {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.footer{
+  background-color: #0e2472;;
+  height: 150px;
+}
+
+/*Menu*/
+.menu{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: end;
+}
+.nav-bar {
+  width: 100%;
+  height: auto;
+  display: flex; /* Alinear elementos horizontalmente */
+  justify-content: space-between; /* Distribuir los elementos entre los extremos */
+  align-items: center; /* Alinear elementos verticalmente */
+  padding: 50px 20px; /* Añadir algo de espacio alrededor del contenido */
+  text-align: end;  
+  font-size: 20px;
+}
+
+.nav-menu {
+  width: 100%;
+  height: auto;
+  list-style-type: none; /* Eliminar los puntos de la lista */
+  display: flex; /* Alinear los elementos del menú horizontalmente */
+  justify-content: center; /* Centrar los elementos dentro del menú */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  width: 30%;
+}
+
+.button-generales{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8%;
+
+}
+.select-cliente{
+  height: 38px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-logout{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu button {
+  background-color: transparent; /* Fondo transparente para los botones */
+  color: rgb(53, 49, 137); /* Color del texto */
+  border: none;
+  padding: 13px 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.nav-menu button:hover {
+  text-decoration: underline; /* Efecto hover para los botones */
+}
+/*Centra nombre de empresa*/
+.company-name {
+  text-align: center; /* Centrar el texto horizontalmente */
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(150, 100, 50); /* Personalizar el color según tu estilo */
+}
+/*Lista desplegable*/
+select {
+  font-size: 18px; /* Tamaño del texto de la lista desplegable */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center; /* Centrar el texto dentro de la lista */
+}
+/*Admin*/
+.empresat {
+  text-align: center; /* Centrar texto horizontalmente */
+  margin: 20px 0;    /* Espaciado opcional */
+  font-family: Arial, sans-serif;
+  color:  #bc8c44;
+  font-size: 40px;
+}
+.text{
+  text-align: center; /* Centrar texto horizontalmente */
+  margin: 20px 0;    /* Espaciado opcional */
+  font-family: Arial, sans-serif;
+  color:  #bc8c44;
+  font-size: 20px;
+}
+/* Estilo para el select */
+.custom-select {
+  border: none; /* Color del borde */
+  border-radius: 2px; /* Bordes redondeados */
+  padding: 1px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño de fuente */
+  background-color: transparent; /* Fondo transparente */
+  color:  rgb(53, 49, 137);/* Color del texto */
+  width: auto; /* O ajusta el ancho según sea necesario */
+  appearance: none; /* Elimina el estilo por defecto del select */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el select */
+}
+
+/* Eliminar flecha por defecto del select */
+.custom-select::-ms-expand {
+  display: none; /* Para Internet Explorer */
+}
+
+/* Personaliza el select con un pseudo-elemento (opcional) */
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select-wrapper:after {
+  content: "▼"; /* Puedes cambiar el símbolo */
+  position: absolute;
+  right: 10px; /* Ajusta según sea necesario */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Asegúrate de que no interfiere con los clics */
+}
+
+/* Puedes ocultar el borde si no lo deseas */
+.custom-select:focus {
+  outline: none;
+  text-decoration: underline; /* Subrayar el texto */
+}
+.logoA {
+  width: 50%;
+  height:100px;
+  display: flex;
+  flex-direction: column;
+}
+/* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que el modal esté encima de otros elementos */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color:rgb(53, 49, 137); /* Color verde para el botón "Sí" */
+  color: white;
+}
+
+.cancel-button {
+  background-color:#bc8c44; /* Color rojo para el botón "No" */
+  color: white;
+}
+.codigo-empresa {
+  font-size: 50px; /* Tamaño de fuente ajustado */
+  color: #555; /* Color del texto del código */
+  margin-top: 0.5em; /* Espacio entre el nombre y el código */
+}
+
+.menu{
+  width: 100%;
+  height: auto;
+
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  /* Ajuste de encabezado para tablets */
+  .encabezado {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .logo select {
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    font-size: 14px;
+  }
+
+  .logo-img-ini {
+    max-width: 40%;
+    height: auto;
+    margin-left: 0;
+  }
+  .custom-select {
+    font-size: 14px;
+    background-color: transparent;
+    color: rgb(53, 49, 137);
+    width: auto;
+    appearance: none;
+    cursor: pointer;
+  }
+  select {
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .nombre {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    font-size: 24px;
+  }
+
+  .empresa {
+    font-size: 25px;
+  }
+
+  .empresa-code {
+    font-size: 18px;
+  }
+
+  /* Ajuste de las gráficas */
+  .graficas {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .circular1 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .nombre-graficas {
+    font-size: 14px;
+  }
+
+  /* Ajuste de tablas */
+  .tablas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .estilo-tablas {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .trabajo-detalles {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Ajuste de lista de trabajos */
+  .trabajo-lista {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .trabajo-item {
+    width: 120px;
+  }
+
+  /* Footer */
+  .footer {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  /* Ajuste del menú */
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-menu button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-menu li button:active {
+    background-color: rgba(53, 49, 137, 0.1);
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .logo select {
+    width: 100%;
+    height: 100%;
+    
+  }
+  .encabezado {
+    height: auto;
+  }
+
+  .nombre{
+    margin-top: 50px;
+  }
+
+  .empresa{
+    width: 100%;
+    height: auto;
+    font-size: 30px;
+  }
+  .empresa-code{
+    font-size: 20px;
+  }
+  
+  .graficas{
+    width: 100%;
+    height: 200px;
+  }
+
+/*Esta contiene los estilos para la grafica circular*/
+  .circular1{
+    width: 90%;
+    height: 350px;  
+  }
+
+  .nombre-graficas {
+    font-family: Arial, sans-serif;
+    color: #0e2472;
+    top: 100%;
+  }
+  .empresat {
+    text-align: center;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    color: #bc8c44;
+    font-size: 30px;
+  }
+
+  .nombre-graficas {
+    font-size: 12px;
+  }
+  
+  .trabajo-item {
+    width: 100px;
+  }
+
+  .logoA{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+  .logo-img-ini{
+    width: 100px;
+  }
+
+  .nav-bar{
+    width: 100%;
+    height: 150px;
+  }
+
+  .nav-menu{
+    width: 100%;
+    height: 135px;
+  }
+
+  .nav-menu li{
+    width: 100%;
+    height: 45px;
+  }
+  .button-generales{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button-generales button{
+    width: 60%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+  }
+
+  .select-cliente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .select-cliente select{
+    width: 60%;
+    height: 45px;
+    font-size: 19px;
+  }
+
+  .button-logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button-logout button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 45px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+  }
+
+
+
+  .custom-select {
+    width: 10%; /* Ajusta el ancho al contenido */
+    font-size: 14px; /* Tamaño de texto adecuado */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f8f8f8; /* Fondo del select */
+    border: 1px solid #ccc; /* Borde gris claro */
+    appearance: none; /* Elimina el estilo por defecto del navegador */
+    cursor: pointer;
+    appearance: none;
+  }
+
+  
+  .custom-select option {
+    font-size: 14px; /* Tamaño de fuente de las opciones */
+  }
+  
+  .custom-select select {
+    width: 10%; /* Asegura que el desplegable respete el ancho */
+    max-width: 100%; /* Limita el ancho */
+    overflow: hidden; /* Evita desbordamiento */
+    text-align: center;
+  }
+  
+  .filtro-mes select{
+    width: 20%;
+    font-size: 14px;
+  }
+  
+}
