@@ -8,6 +8,8 @@ import renderChartsForEmpresa from './common/Charts'; // Componente para gráfic
 import TrabajoDetalles from './common/TrabajoDetalles'; // Componente para mostrar detalles de trabajo
 import MesSelector from './common/MesSelector'; // Componente para seleccionar el mes
 import BarProgress from './common/BarProgress'; // Componente para mostrar la barra de progreso
+import procesarDatosGenerales from '../hooks/datosGenerales';
+
 
 function DatosAdmin() {
     const { data, loading, error } = useFetchData('/job/list'); // Estado para almacenar los datos de trabajos, loading y error
@@ -21,6 +23,7 @@ function DatosAdmin() {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
     const dataPorEmpresa = useDataPorEmpresa(data); // Procesa los datos por empresa
+    const datosGenerales = procesarDatosGenerales(data);
 
     // Maneja el cambio de cliente en el selector
     const handleEmpresaChange = (event) => {
@@ -104,41 +107,6 @@ function DatosAdmin() {
         return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`; // Formato de horas:minutos
     };
 
-    // Procesa datos generales de trabajos para estadísticas
-    const procesarDatosGenerales = (data) => {
-        const trabajosPorMes = Array(12).fill(0); // Array para contar trabajos por mes
-        const horasTrabajadasPorMes = Array(12).fill(0); // Array para contar horas trabajadas por mes
-        const lugares = {}; // Objeto para contar trabajos por lugar
-        const tiempoPorTrabajo = []; // Array para almacenar tiempo por trabajo
-
-        data.forEach(job => {
-            const jobDate = new Date(job.dateCreated);
-            const mes = jobDate.getMonth(); // Mes del trabajo
-            const actualStart = new Date(job.actualStart);
-            const actualEnd = job.actualEnd ? new Date(job.actualEnd) : null;
-            const horasTrabajadas = actualEnd ? (actualEnd - actualStart) / (1000 * 60 * 60) : 0; // Calcula horas trabajadas
-
-            trabajosPorMes[mes] += 1; // Incrementa el conteo de trabajos del mes
-            horasTrabajadasPorMes[mes] += horasTrabajadas; // Suma horas trabajadas al mes correspondiente
-
-            // Cuenta trabajos por lugar
-            if (job.site && job.site.name) {
-                if (!lugares[job.site.name]) {
-                    lugares[job.site.name] = 0; // Inicializa el contador si no existe
-                }
-                lugares[job.site.name] += 1; // Incrementa el conteo de trabajos por lugar
-            }
-
-            // Almacena tiempo trabajado
-            tiempoPorTrabajo.push({
-                fecha: jobDate,
-                horasTrabajadas
-            });
-        });
-
-        return { trabajosPorMes, horasTrabajadasPorMes, lugares, tiempoPorTrabajo }; // Devuelve el resumen de datos
-    };
-
     // Maneja la confirmación de cierre de sesión
     const handleLogoutConfirm = () => {
         localStorage.removeItem('authToken'); // Elimina el token de autenticación
@@ -153,7 +121,6 @@ function DatosAdmin() {
 
     // Obtiene una lista de clientes únicos de los datos
     const uniqueClientes = data ? [...new Set(data.filter(job => job.customer?.name).map(job => job.customer.name))] : [];
-    const datosGenerales = procesarDatosGenerales(data); // Procesa los datos generales para estadísticas
 
     return (
         <div>

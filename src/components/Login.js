@@ -20,7 +20,7 @@ function Login() {
     const handleLogin = async () => {
         try {
             // Realiza una petición POST al servidor para iniciar sesión
-            const response = await axios.post('https://eqp2.ajaw.com.mx/api/login.php', {
+            const response = await axios.post('https://clientes.ajaw.com.mx/api/login.php', {
                 email,
                 pass,
             });
@@ -48,7 +48,7 @@ function Login() {
     const handleRegister = async () => {
         try {
             // Realiza una petición POST al servidor para registrar un nuevo usuario
-            const response = await axios.post('https://eqp2.ajaw.com.mx/api/register.php', {
+            const response = await axios.post('https://clientes.ajaw.com.mx/api/register.php', {
                 email,
                 pass,
                 codigo, // Se incluye el código en el registro

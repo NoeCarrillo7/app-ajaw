@@ -49,6 +49,13 @@ const getUltimos12Meses = () => {
 const renderChartsForEmpresa = (empresaData) => {
     const meses = getUltimos12Meses();  // Obtener los últimos 12 meses
 
+    const totalTrabajos = empresaData.trabajosPorMes
+        ? empresaData.trabajosPorMes.reduce((acc, cur) => acc + cur, 0)
+        : 0;
+    const totalHorasTrabajadas = empresaData.horasTrabajadasPorMes
+        ? empresaData.horasTrabajadasPorMes.reduce((acc, cur) => acc + cur, 0)
+        : 0;
+
     // Configuración de datos para el gráfico de barras (trabajos realizados)
     const barData = {
         labels: meses,
@@ -122,14 +129,16 @@ const renderChartsForEmpresa = (empresaData) => {
                 <div className="graficas">  {/*gráfico de barras */}
                     <Bar data={barData} />
                     <p className='nombre-graficas'>TRABAJOS REALIZADOS POR MES</p>
+                    <p className='nombre-graficas'>TOTAL DE TRABAJOS: {totalTrabajos}</p>
                 </div>
                 <div className="graficas">  {/* Gráfico de líneas */}
                     <Line data={lineData} />
                     <p className='nombre-graficas'>HORAS TRABAJADAS POR MES</p>
+                    <p className='nombre-graficas'>TOTAL DE HORAS TRABAJADAS: {totalHorasTrabajadas.toFixed(2)}</p>
                 </div>
 
                 <div className="circular1">  {/*Gráfico circular */}
-                    <Pie data={lugaresData} /> 
+                    <Pie data={lugaresData} />
                     <p className='nombre-graficas'>LUGARES DE TRABAJO</p>
                 </div>
 
